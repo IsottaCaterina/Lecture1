@@ -309,3 +309,34 @@ while coda_ordini:
 
 print(f"Ho processato tutti gli ordini!")
 
+#Implementazione di una coda con lista e con deque.
+# coda =  x0 <- [x1,x2,x3,x4,x5,x6] <- x7 -- first in first out
+import time
+from collections import deque
+
+# Implementazione con lista
+lista = []
+tic = time.time()
+for i in range(100000):
+    lista.append(i)
+toc = time.time()
+print(f"Tempo per aggiunger valori alla lista: {toc-tic}")
+
+tic = time.time()
+for i in range(100000):
+    lista.pop(0)
+toc = time.time()
+print(f"Tempo per togliere valori alla lista: {toc-tic}")
+
+d = deque()
+tic = time.time()
+for i in range(100000):
+    d.append(i)
+toc = time.time()
+print(f"Tempo per aggiungere valori al deque: {toc-tic}")
+
+tic = time.time()
+for i in range(100000):
+    d.popleft()
+toc = time.time()
+print(f"Tempo per togliere valori al deque: {toc-tic}")
